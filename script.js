@@ -23,13 +23,24 @@ let container = document.querySelector(".container");
 function colorOnHover(event) {
 // Change the background color of a cell when hovered over
 
-    // Select a random RGB value
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
- 
-    // Update the background color of the cell
-    event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    // If the cell is empty, add a color to it
+    if (!event.target.style.backgroundColor) {
+        // Select a random RGB value
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+    
+        // Update the background color of the cell
+        event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        event.target.style.opacity = ".1";
+    }
+
+    // Else, increase the opacity by 10%
+    else {
+        let opacity = +event.target.style.opacity;
+        opacity += .1;
+        event.target.style.opacity = opacity;
+    }
 }
 
 // Create the grid on the screen
