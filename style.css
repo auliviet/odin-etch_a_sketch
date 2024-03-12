@@ -2,6 +2,8 @@
   display: flex;
   flex-flow: column;
   gap: 2px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .row {
@@ -14,4 +16,16 @@
   height: 60px;
   width: 60px;
   background-color: lightgray;
+}
+
+#restart {
+  padding: 8px 16px;
+  margin: 8px auto;
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #222;
+  color: #cacaca;
 }
