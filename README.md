@@ -2,7 +2,7 @@
 Exercise for the Odin Project on JavaScript foundations
 
 ## Preview link 
-[TO BE ADDED]
+https://auliviet.github.io/odin-etch_a_sketch/
 
 ## Instructions
 - Create a page 16x16 grid of square divs
