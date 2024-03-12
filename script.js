@@ -1,4 +1,23 @@
-const GRID_SIZE = 16;
+const GRID_SIZE = 100;
+
+function createCanvas() {
+// Create the playable area for the game based on the size of the window
+
+    // Get the size of the window
+    let min = document.documentElement.clientHeight;
+    let max = document.documentElement.clientWidth;
+
+    // Define the minimum playable area
+    if (min > max) {
+        min = document.documentElement.clientWidth;
+    }
+
+    // Apply styles to the HTML
+    document.querySelector(".container").style.height = `${min - 100}px`;
+    document.querySelector(".container").style.width = `${min - 100}px`;
+
+}
+
 
 function createGrid(gridSize) {
 // Create a grid on the HTML page of X by X cells, X being the gridSize
@@ -44,6 +63,7 @@ function colorOnHover(event) {
 }
 
 // Create the grid on the screen
+createCanvas();
 createGrid(GRID_SIZE);
 
 // Create event listeners for all cells on the page
