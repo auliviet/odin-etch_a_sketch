@@ -23,13 +23,19 @@ let container = document.querySelector(".container");
 function colorOnHover(event) {
 // Change the background color of a cell when hovered over
 
-    event.target.style.backgroundColor = "black";
+    // Select a random RGB value
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+ 
+    // Update the background color of the cell
+    event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 // Create the grid on the screen
 createGrid(GRID_SIZE);
 
-// Create event listeners
+// Create event listeners for all cells on the page
 let cells = document.querySelectorAll(".cell");
 cells.forEach((cell) => {
     cell.addEventListener("mouseover", (event) => {
