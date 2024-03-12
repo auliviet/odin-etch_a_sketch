@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-flow: column;
-  gap: 2px;
+  gap: 1px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -9,12 +9,12 @@
 .row {
   display: flex;
   flex-flow: row;
-  gap: 2px;
+  gap: 1px;
+  flex: 1;
 }
 
 .cell {
-  height: 60px;
-  width: 60px;
+  flex: 1;
   background-color: lightgray;
 }
 
