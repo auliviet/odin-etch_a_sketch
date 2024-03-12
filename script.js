@@ -13,9 +13,26 @@ let container = document.querySelector(".container");
             cell.classList.add("cell");
             row.appendChild(cell);
         }
-
+        
+        // Add each row to the container
         container.appendChild(row);
     }
 }
 
+
+function colorOnHover(event) {
+// Change the background color of a cell when hovered over
+
+    event.target.style.backgroundColor = "black";
+}
+
+// Create the grid on the screen
 createGrid(GRID_SIZE);
+
+// Create event listeners
+let cells = document.querySelectorAll(".cell");
+cells.forEach((cell) => {
+    cell.addEventListener("mouseover", (event) => {
+        colorOnHover(event);
+    });
+});
