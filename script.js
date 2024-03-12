@@ -1,4 +1,5 @@
-const GRID_SIZE = 100;
+const INITIAL_GRID_SIZE = 16;
+const MAX_GRID_SIZE = 100;
 
 function createCanvas() {
 // Create the playable area for the game based on the size of the window
@@ -36,6 +37,21 @@ let container = document.querySelector(".container");
         // Add each row to the container
         container.appendChild(row);
     }
+
+    // Create event listeners for all cells on the page
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("mouseover", (event) => {
+            colorOnHover(event);
+        });
+    });
+}
+
+function flushGrid() {
+// Delete an existing grid on the page
+    let rows = document.querySelectorAll(".row");
+    
+    rows.forEach((row) => row.remove());
 }
 
 
@@ -62,14 +78,33 @@ function colorOnHover(event) {
     }
 }
 
+
+function getPlayerGridSize () {
+// Ask the user to select the size of the grid
+
+    let playerGridSize = parseInt(prompt("How many squares per side?"));
+
+    // Ensure the input is valid
+    if (isNaN(playerGridSize)) {
+        alert("Please enter a number");
+        getPlayerGridSize();
+    }
+    else if (playerGridSize < 1 || playerGridSize > 100) {
+        alert("Please enter a number between 1 and 100");
+        getPlayerGridSize();
+    }
+    else {
+    // If input is valid, delete the existing content and generate a new grid with the user input.
+        flushGrid();
+        createGrid(playerGridSize);
+    }
+
+}
+
 // Create the grid on the screen
 createCanvas();
-createGrid(GRID_SIZE);
+createGrid(INITIAL_GRID_SIZE);
 
-// Create event listeners for all cells on the page
-let cells = document.querySelectorAll(".cell");
-cells.forEach((cell) => {
-    cell.addEventListener("mouseover", (event) => {
-        colorOnHover(event);
-    });
-});
+//Create envent listener on the restart button
+let restart = document.getElementById("restart");
+restart.addEventListener("click", getPlayerGridSize);
